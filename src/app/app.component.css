@@ -40,22 +40,16 @@ p {
 
 .toolbar img {
   margin: 0 16px;
+  z-index: 1;
 }
 
 .content {
   display: flex;
-  margin: 82px auto 32px;
-  padding: 0 16px;
-  max-width: 960px;
+  margin: 62px auto 12px;
+  /* padding: 0 16px; */
+  /* max-width: 960px; */
   flex-direction: column;
   align-items: center;
-}
-
-aside {
-  position: absolute;
-  left: 10px;
-  min-width: 20%;
-  border: solid 1px red;
 }
 
 svg.material-icons {
@@ -162,24 +156,6 @@ a:hover {
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-}
-
-footer {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  line-height: 20px;
-}
-
-footer a {
-  display: flex;
-  align-items: center;
-}
-
 .github-star-badge {
   color: #24292e;
   display: flex;
@@ -228,4 +204,24 @@ svg#clouds {
   .card.highlight-card span {
     margin-left: 72px;
   }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+}
+
+footer {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  line-height: 20px;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
 }
