@@ -93,11 +93,15 @@ p.lead {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: lightcyan;
+  color: #1976d2;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: red;
 }
 
 #sideNav .navbar-toggler:focus {
-  outline-color: lightseagreen;
+  outline-color: #1976d2;
 }
 
 @media (min-width: 992px) {
@@ -142,8 +146,8 @@ p.lead {
 }
 
 section.resume-section {
-  padding-top: 5rem !important;
-  padding-bottom: 5rem !important;
+  padding-top: 0rem !important;
+  padding-bottom: 1rem !important;
   max-width: 75rem;
 }
 
@@ -162,35 +166,43 @@ section.resume-section .resume-item .resume-date {
 
 @media (min-width: 992px) {
   section.resume-section {
-    padding-top: 3rem !important;
+    /* padding-top: 3rem !important; */
     padding-left: 0px !important;
     padding-bottom: 3rem !important;
-    border: solid 0px red;
     margin-left: -100px;
-  }
-
-  .bg-primary {
-    background-color: #1976d2 !important;
-    z-index: -11;
+    border: solid 0px red;
   }
 }
 
 .text-primary {
-  color: lightseagreen !important;
+  color: #1976d2;
 }
 
 a {
-  color: lightseagreen;
+  color: #1976d2;
 }
 
 a:hover,
 a:focus,
 a:active {
-  color: lightseagreen;
+  color: #222;
 }
 
 #counter a {
   color: #fff;
+}
+
+.bg-primary {
+  background-color: #1976d2 !important;
+  z-index: -2;
+}
+
+svg#clouds {
+  position: fixed;
+  bottom: -160px;
+  left: -60px;
+  z-index: -1;
+  width: 1920px;
 }
 
 .text-success {
