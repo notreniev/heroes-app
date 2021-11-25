@@ -93,7 +93,7 @@ p.lead {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: lightseagreen;
+  color: lightcyan;
 }
 
 #sideNav .navbar-toggler:focus {
@@ -126,6 +126,7 @@ p.lead {
     align-items: flex-start;
     flex-grow: 0;
     width: 100%;
+    margin-top: 20px;
     margin-bottom: auto;
   }
   #sideNav .navbar-collapse .navbar-nav {
