@@ -30,14 +30,13 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('#heroes')?.textContent).toContain('Heroes App');
+    expect(compiled.querySelector('#heroes')?.textContent).toContain('Heróis App');
   });
 
   it('should have a form tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('#searchForm .form-label')?.textContent).toContain('Hero\'s name');
-    expect(compiled.querySelector('.form-control')?.getAttribute('placeholder')).toContain('Type hero\'s name here');
+    expect(compiled.querySelector('.form-control')?.getAttribute('placeholder')).toContain('Digite o nome do herói');
     expect(compiled.querySelector('#searchForm .btn')?.getAttribute('type')).toBe('button');
     expect(compiled.querySelector('#searchForm .btn-primary')?.textContent).toBe('Buscar');
     console.log(compiled.querySelector('#searchForm .btn-primary')?.textContent)
