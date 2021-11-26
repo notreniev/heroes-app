@@ -33,7 +33,7 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('#heroes')?.textContent).toContain('Heróis App');
   });
 
-  it('should have a form tag', () => {
+  it('should test search form layout', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.form-control')?.getAttribute('placeholder')).toContain('Digite o nome do herói');

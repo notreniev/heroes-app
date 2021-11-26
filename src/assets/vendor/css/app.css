@@ -138,6 +138,10 @@ section.resume-section .resume-item .resume-date {
     padding-left: none;
   }
 
+  section.resume-section h3 {
+    margin-left: -15px !important;
+  }
+
   .bg-primary {
     background-color: #1976d2 !important;
   }
