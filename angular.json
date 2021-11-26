@@ -25,6 +25,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/assets/vendor/bootstrap/css/bootstrap.min.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-grid.min.css",
               "src/assets/vendor/css/app.css",
               "src/styles.css"
             ],
