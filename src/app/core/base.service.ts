@@ -4,9 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class BaseService {
     httpOptions() {
         return {
-            headers: new HttpHeaders({
-                'Content-Type': 'application/json'
-            })
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
         };
     }
 

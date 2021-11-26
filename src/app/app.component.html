@@ -36,15 +36,35 @@
         <div class="row">
           <div class="col-sm">
             <input type="text" class="form-control" id="name" name="name" placeholder="Digite o nome do herói"
-              [(ngModel)]="hero.name" #name="ngModel">
+              [(ngModel)]="hero.name" #name="ngModel" required minlength="5">
           </div>
           <div class="col-sm">
-            <button type="button" class="btn btn-primary" (click)="searchHeroes(hero)">Buscar</button>
+            <button type="button" class="btn btn-primary" (click)="searchHeroes(hero)"
+              [disabled]="heroesForm.invalid">Buscar</button>
           </div>
         </div>
       </form>
+
+      <br>
+      <div class="progress" *ngIf="!finished">
+        <div class="progress-value"></div>
+      </div>
     </section>
 
+
+    <section class="resume-section" *ngIf="success">
+      <div class="container-content-cards">
+        <div class="card" *ngFor="let hero of heroes">
+          <div class="card-image" id="card-image" title="{{hero.name}}">
+            <img src="{{hero.image.url}}" alt="{{hero.name}}" />
+          </div>
+          <div class="card-footer">
+            <h6>{{hero.name}}</h6>
+            <p>{{hero.biography["full-name"]}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </div>
 

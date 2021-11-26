@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
@@ -6,7 +8,7 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule, HttpClientTestingModule, FormsModule
       ],
       declarations: [
         AppComponent
@@ -39,7 +41,8 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.form-control')?.getAttribute('placeholder')).toContain('Digite o nome do herói');
     expect(compiled.querySelector('#searchForm .btn')?.getAttribute('type')).toBe('button');
     expect(compiled.querySelector('#searchForm .btn-primary')?.textContent).toBe('Buscar');
-    // console.log(compiled.querySelector('#searchForm .btn-primary')?.textContent)
+    // expect(compiled.querySelector('#searchForm .btn-primary')?.innerHTML).toBeTruthy();
+    // console.log(compiled.querySelector('#searchForm button')?.getAttributeNames())
   });
 
 });
