@@ -32,13 +32,14 @@
     </section>
 
     <section class="resume-section" id="searchForm">
-      <form id="#heroesForm">
+      <form id="#heroesForm" #heroesForm="ngForm">
         <div class="row">
           <div class="col-sm">
-            <input type="text" class="form-control" id="name" placeholder="Digite o nome do herói">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Digite o nome do herói"
+              [(ngModel)]="hero.name" #name="ngModel">
           </div>
           <div class="col-sm">
-            <button type="button" class="btn btn-primary">Buscar</button>
+            <button type="button" class="btn btn-primary" (click)="searchHeroes(hero)">Buscar</button>
           </div>
         </div>
       </form>

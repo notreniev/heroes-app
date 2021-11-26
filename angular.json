@@ -41,8 +41,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4kb",
+                  "maximumError": "5kb"
                 }
               ],
               "fileReplacements": [
@@ -71,7 +71,8 @@
               "browserTarget": "hero-app:build:production"
             },
             "development": {
-              "browserTarget": "hero-app:build:development"
+              "browserTarget": "hero-app:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

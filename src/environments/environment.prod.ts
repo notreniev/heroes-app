@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  urlApi: 'https://superheroapi.com/api/110597718118774'
+  accessToken: '110597718118774',
+  urlApi: 'https://superheroapi.com/api',
+  BASE_URL: ''
 };

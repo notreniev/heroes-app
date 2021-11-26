@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  urlApi: 'https://superheroapi.com/api/110597718118774'
+  accessToken: '110597718118774',
+  urlApi: 'https://superheroapi.com',
+  BASE_URL: 'api'
 };
 
 /*
