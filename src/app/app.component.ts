@@ -25,9 +25,7 @@ export class AppComponent implements OnInit {
     { label: 'Combate', value: 'combat', checked: false }
   ];
 
-  constructor(private heroesService: HeroesService) {
-
-  }
+  constructor(private heroesService: HeroesService) { }
 
   ngOnInit() {
     this.hero.name = 'spider';
@@ -52,19 +50,16 @@ export class AppComponent implements OnInit {
 
   async filterPowerStats(powerstat: any, checked?: boolean) {
     if (checked) {
-      console.log('target', powerstat.value)
       this.heroes = this.heroes.filter(hero => hero.powerstats[powerstat.value] !== 'null');
-      console.log('49', this.heroes.length)
       this.heroes.map(hero => console.log(powerstat.value, hero.powerstats[powerstat.value]));
     } else {
       this.heroes = this.heroesImmutable;
-      console.log('52', this.heroes.length)
     }
   }
 
   resetForm() {
-    this.hero = new HeroModel();
     this.heroes = [];
+    this.hero = new HeroModel();
     this.powerstats.map((power: any) => power.checked = false);
     this.success = false;
   }
