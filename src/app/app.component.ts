@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { timer } from 'rxjs';
 import { HeroModel } from './core/domain/model/hero.model';
 import { HeroesService } from './heroes/heroes.service';
@@ -24,6 +24,8 @@ export class AppComponent implements OnInit {
     { label: 'Poder', value: 'power', checked: false },
     { label: 'Combate', value: 'combat', checked: false }
   ];
+
+  show: boolean = true;
 
   constructor(private heroesService: HeroesService) { }
 

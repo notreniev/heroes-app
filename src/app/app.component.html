@@ -10,7 +10,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <!-- <span class="d-block d-lg-none">Everton Canez</span>  -->
+      <!-- <span class="d-block d-lg-none">Everton Canez</span> -->
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,6 +80,7 @@
         </div>
       </div>
     </section>
+
   </div>
 
   <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
@@ -88,15 +89,24 @@
       transform="translate(142.69 -634.312)" fill="#eee" />
   </svg>
 
-
-  <footer>
-    Alter Solutions | Technical Assessment | Everton Canez
-  </footer>
 </div>
 
-<router-outlet></router-outlet>
+<div class="panel" id="panel" *ngIf="show">
+  <div style="position: relative; top: 10px; left: 10px">
+    <button class="btn btn-link">
+      << </button>
+  </div>
+  <h3>Fight club</h3>
 
-<!-- Bootstrap core JavaScript -->
+</div>
+
+<!-- Footer -->
+<footer>
+  Alter Solutions | Technical Assessment | Everton Canez
+</footer>
+
+<!-- <router-outlet></router-outlet> -->
+
 <script src="../vendor/jquery/jquery.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -105,5 +115,3 @@
 
 <!-- Custom scripts for this template -->
 <script src="../js/resume.min.js"></script>
-
-<!-- Footer -->

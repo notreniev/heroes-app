@@ -59,34 +59,8 @@ a:hover {
   color: #125699;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 767px) {
-  .card-container > *:not(.circle-link),
-  .terminal {
-    width: 100%;
-  }
-
-  .card:not(.highlight-card) {
-    height: 16px;
-    margin: 8px 0;
-  }
-
-  .card.highlight-card span {
-    margin-left: 72px;
-  }
-}
-
-.container {
-  position: relative;
-  width: 100%;
-}
-
-.container h2 {
-  text-align: center;
-}
-
 .container-content-cards {
-  width: 100%;
+  width: 60vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -98,6 +72,12 @@ a:hover {
 
 .container-content-cards > div {
   margin: 10px;
+}
+
+@media (max-width: 568px) {
+  .container-content-cards {
+    width: 100%;
+  }
 }
 
 main {
