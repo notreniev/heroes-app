@@ -44,12 +44,8 @@ p {
 }
 
 .content {
-  /* display: flex; */
   margin: 62px auto 12px;
-  /* padding: 1 16px; */
-  /* max-width: 960px; */
   flex-direction: column;
-  /* align-items: center; */
 }
 
 a,
@@ -96,8 +92,8 @@ a:hover {
   flex-wrap: wrap;
   place-content: center;
   place-items: center;
-  border: solid 0px red;
   justify-content: flex-start;
+  margin: -10px;
 }
 
 .container-content-cards > div {
@@ -111,8 +107,8 @@ main {
 footer {
   display: flex;
   margin-left: 30%;
-  position: fixed;
-  bottom: 0;
+  /* position: fixed; */
+  /* bottom: 0; */
   text-align: center;
 }
 

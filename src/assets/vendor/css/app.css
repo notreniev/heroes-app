@@ -106,62 +106,37 @@ p.lead {
 section.resume-section {
   padding-top: 0rem;
   padding-bottom: 1rem;
-  padding-left: 10px;
-  padding-right: 10px;
-  max-width: 75rem;
+}
+
+section.resume-section form .row {
   border: solid 0px red;
+  display: inline-flex;
+  min-width: 100vw;
+  padding-bottom: 10px;
 }
 
-section.resume-section .resume-item .resume-date {
-  min-width: none;
-}
-
-section.resume-section .form-check {
-  margin-top: 10px;
+@media (max-width: 568px) {
+  section.resume-section form .row .col-sm {
+    border: solid 0px red;
+    margin-top: 10px;
+  }
 }
 
 @media (min-width: 768px) {
   section.resume-section {
     min-height: 10vh;
-  }
-  section.resume-section .resume-item .resume-date {
-    min-width: 18rem;
+    border: solid 0px red;
   }
 }
 
 @media (min-width: 992px) {
   section.resume-section {
-    /* padding-top: 3rem !important; */
-    padding-left: 10px !important;
-    padding-bottom: 3rem !important;
     margin-left: -100px;
-    padding-left: none;
-  }
-
-  section.resume-section h3 {
-    margin-left: -15px !important;
+    padding-left: 0 !important;
   }
 
   .bg-primary {
     background-color: #1976d2 !important;
-  }
-}
-
-@media (max-width: 492px) {
-  section.resume-section .row > .col-sm {
-    max-width: 50%;
-    padding-left: 0px;
-  }
-
-  .container-content-cards {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    place-content: center;
-    place-items: center;
-    border: solid 0px red;
-    justify-content: center;
   }
 }
 
@@ -201,9 +176,8 @@ svg#clouds {
   padding: 20px;
 }
 
-section h3 {
-  letter-spacing: 2px;
-  font-weight: normal;
+section.resume-section .card {
+  margin: 0px;
 }
 
 /** CARDS */
@@ -213,11 +187,9 @@ section h3 {
   min-width: 200px;
   max-height: 300px;
   min-height: 300px;
-  margin: 40px;
   border-radius: 20px;
   padding: 0px 24px 0px 24px;
   box-shadow: 0px 5px 10px #00000033;
-  border: solid 0px red;
   padding: 10px;
 }
 
@@ -263,7 +235,7 @@ section h3 {
 }
 
 .progress-value {
-  animation: load 1s normal forwards;
+  animation: load 0.5s normal forwards;
   box-shadow: 0 10px 40px -10px #fff;
   border-radius: 100px;
   background: orange;
@@ -276,6 +248,11 @@ section h3 {
     width: 0;
   }
   100% {
-    width: 99%;
+    width: 100%;
   }
+}
+
+.p-lg-5 {
+  padding: 0px !important;
+  padding-top: 1.5rem !important;
 }

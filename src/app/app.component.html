@@ -43,42 +43,21 @@
           <div class="col-sm">
             <button type="button" class="btn btn-primary" (click)="searchHeroes(hero)"
               [disabled]="heroesForm.invalid">Buscar</button>
+            <button type="button" class="btn btn-link" (click)="resetForm()" [disabled]="heroesForm.invalid"
+              *ngIf="hero.name">Reset</button>
           </div>
         </div>
 
+        <!-- Filters -->
         <div id="filter" *ngIf="success">
-          <div class=" form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" id="intelligence" name="intelligence"
-              [(ngModel)]="isChecked" (change)="filterPowerStats($event, isChecked?true:false)"
-              FormControleName="intelligence">
-            <label class="form-check-label" for="intelligence">Inteligência</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" id="strengh" name="strengh"
-              (change)="filterPowerStats($event)">
-            <label class="form-check-label" for="strengh">Força</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" id="speed" name="speed" (change)="filterPowerStats($event)">
-            <label class="form-check-label" for="speed">Velocidade</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" id="durability" name="durability"
-              (change)="filterPowerStats($event)">
-            <label class="form-check-label" for="durability">Durabilidade</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" id="power" name="power" (change)="filterPowerStats($event)">
-            <label class="form-check-label" for="power">Poder</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input type="checkbox" class="form-check-input" id="combat" name="combat"
-              (change)="filterPowerStats($event)">
-            <label class="form-check-label" for="combat">Combate</label>
+          <div class="form-check form-check-inline" *ngFor="let powerstat of powerstats">
+            <input type="checkbox" class="form-check-input" id="{{powerstat.value}}" name="{{powerstat.value}}"
+              [(ngModel)]="powerstat.checked" (change)="filterPowerStats(powerstat, powerstat.checked?true:false)"
+              FormControleName="powerstats.label">
+            <label class="form-check-label" for="{{powerstat.value}}">{{powerstat.label}}</label>
           </div>
         </div>
       </form>
-
 
       <!-- Progressbar -->
       <div class="progress" *ngIf="!finished">

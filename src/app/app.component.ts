@@ -16,19 +16,26 @@ export class AppComponent implements OnInit {
   success = false;
   finished = true;
   isChecked: any;
+  powerstats = [
+    { label: 'Inteligência', value: 'intelligence', checked: false },
+    { label: 'Força', value: 'strength', checked: false },
+    { label: 'Velocidade', value: 'speed', checked: false },
+    { label: 'Durabilidade', value: 'durability', checked: false },
+    { label: 'Poder', value: 'power', checked: false },
+    { label: 'Combate', value: 'combat', checked: false }
+  ];
 
   constructor(private heroesService: HeroesService) {
 
   }
 
   ngOnInit() {
-    const hero = new HeroModel();
-    hero.name = 'spider';
-
-    this.searchHeroes(hero);
+    this.hero.name = 'spider';
+    this.searchHeroes(this.hero);
   }
 
   async searchHeroes(hero: HeroModel) {
+    this.heroes = [];
     const res = await <any>this.heroesService.searchHeroes(hero.name).toPromise();
     const { response, results } = res;
     this.success = response === 'success';
@@ -36,18 +43,30 @@ export class AppComponent implements OnInit {
     this.heroesImmutable = results;
 
     setTimeout(() => {
-      this.heroes = results;
       console.log(res);
       this.finished = true;
+      this.heroes = results;
     }, 1000);
+
   }
 
-  async filterPowerStats(event: any, checked?: boolean) {
+  async filterPowerStats(powerstat: any, checked?: boolean) {
     if (checked) {
-      this.heroes = this.heroes.filter(hero => (<any>hero).powerstats[event.target.name] !== 'null');
+      console.log('target', powerstat.value)
+      this.heroes = this.heroes.filter(hero => hero.powerstats[powerstat.value] !== 'null');
+      console.log('49', this.heroes.length)
+      this.heroes.map(hero => console.log(powerstat.value, hero.powerstats[powerstat.value]));
     } else {
       this.heroes = this.heroesImmutable;
+      console.log('52', this.heroes.length)
     }
+  }
+
+  resetForm() {
+    this.hero = new HeroModel();
+    this.heroes = [];
+    this.powerstats.map((power: any) => power.checked = false);
+    this.success = false;
   }
 
 }
