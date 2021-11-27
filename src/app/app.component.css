@@ -101,7 +101,7 @@ a:hover {
 }
 
 .container-content-cards > div {
-  margin: 20px;
+  margin: 10px;
 }
 
 main {
@@ -109,18 +109,18 @@ main {
 }
 
 footer {
+  display: flex;
+  margin-left: 30%;
   position: fixed;
   bottom: 0;
+  text-align: center;
 }
 
 footer {
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 10px;
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
   line-height: 20px;
+  text-align: center;
 }
 
 footer a {

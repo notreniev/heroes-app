@@ -5,4 +5,5 @@ export class HeroModel {
     description: string;
     "full-name": string;
     biography: any;
+    intelligence: string;
 }
