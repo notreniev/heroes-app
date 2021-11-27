@@ -1,0 +1,11 @@
+<nav>
+    <button class="btn btn-primary" (click)="toggle()">Toggle Open/Close</button>
+</nav>
+
+<div class="panel" id="panel" [@openClose]="isOpen ? 'open' : 'closed'">
+    <div>
+        <button class="btn btn-link">Fechar </button>
+        <h3>Fight club</h3>
+    </div>
+
+</div>

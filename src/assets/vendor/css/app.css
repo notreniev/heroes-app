@@ -266,11 +266,10 @@ section.resume-section .card {
 }
 
 .panel {
-  width: 400px;
+  width: 500px;
   height: 94%;
   background-color: white;
   border-left: solid 1px #f0f0f0;
-  /* height: calc(100vh - 100px); */
   box-sizing: border-box;
 }
 

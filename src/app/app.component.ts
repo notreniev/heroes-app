@@ -1,5 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { timer } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { HeroModel } from './core/domain/model/hero.model';
 import { HeroesService } from './heroes/heroes.service';
 
