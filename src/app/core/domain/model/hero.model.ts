@@ -6,4 +6,5 @@ export class HeroModel {
     "full-name": string;
     biography: any;
     powerstats: any[];
+    checked: boolean = false;
 }

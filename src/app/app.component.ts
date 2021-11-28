@@ -51,18 +51,25 @@ export class AppComponent implements OnInit {
     }, 1000);
   }
 
-  selectHeroes(hero: HeroModel) {
-    if (this.selectedHeroes.length === 2) {
-      this.selectedHeroes.shift();
+  selectHeroes(hero: HeroModel, checked: boolean) {
+
+    const indexOf = this.selectedHeroes.indexOf(hero);
+
+    if (checked) {
+      if (this.selectedHeroes.length < 2) {
+        hero.checked = checked;
+        this.selectedHeroes.push(hero);
+      }
+    } else {
+      hero.checked = false;
+      this.selectedHeroes.splice(indexOf, 1);
     }
-    this.selectedHeroes.push(hero);
-    console.log('60:', this.selectedHeroes);
 
     if (this.selectedHeroes.length === 2) {
-      this.openCloseComponent.toggle();
-
+      if (!this.openCloseComponent.isOpen) {
+        this.openCloseComponent.toggle();
+      }
     }
-
   }
 
   async filterPowerStats(powerstat: any, checked?: boolean) {
@@ -85,5 +92,6 @@ export class AppComponent implements OnInit {
 
   closePanel(event: any) {
     this.selectedHeroes = [];
+    this.heroes.forEach(hero => hero.checked = false);
   }
 }

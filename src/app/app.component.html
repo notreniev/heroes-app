@@ -54,8 +54,7 @@
         <div id="filter" *ngIf="success">
           <div class="form-check form-check-inline" *ngFor="let powerstat of powerstats">
             <input type="checkbox" class="form-check-input" id="{{powerstat.value}}" name="{{powerstat.value}}"
-              [(ngModel)]="powerstat.checked" (change)="filterPowerStats(powerstat, powerstat.checked?true:false)"
-              FormControleName="powerstats.label">
+              [(ngModel)]="powerstat.checked" (change)="filterPowerStats(powerstat, powerstat.checked?true:false)">
             <label class="form-check-label" for="{{powerstat.value}}">{{powerstat.label}}</label>
           </div>
         </div>
@@ -71,13 +70,18 @@
     <!-- Results -->
     <section class="resume-section" *ngIf="success">
       <div class="container-content-cards">
-        <div class="card" *ngFor="let hero of heroes" (click)="selectHeroes(hero)">
+        <div class="card" *ngFor="let hero of heroes">
           <div class="card-image" id="card-image" title="{{hero.name}}">
-            <img src="{{hero.image.url}}" alt="{{hero.name}}" />
+            <input type="checkbox" class="form-check-input" id="{{hero.name}}" name="{{hero.name}}"
+              [(ngModel)]="hero.checked">
+
+            <img src="{{hero.image.url}}" alt="{{hero.name}}" (click)="selectHeroes(hero, !hero.checked?true:false)"
+              [ngClass]="{'img-checked':hero.checked?true:false}" />
           </div>
           <div class="card-footer">
             <h6>{{hero.name}}</h6>
             <p>{{hero.biography["full-name"]}}</p>
+            <a class="btn btn-link" href="#">Detalhes</a>
           </div>
         </div>
       </div>
