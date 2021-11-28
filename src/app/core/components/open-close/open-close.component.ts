@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   trigger,
   state,
@@ -6,22 +6,25 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { HeroModel } from '../../domain/model/hero.model';
 
 @Component({
   selector: 'app-open-close',
   animations: [
     trigger('openClose', [
       state('open', style({
-        height: '94vh',
+        width: '500px',
+        // height: '94vh',
         opacity: 1,
         display: 'visible'
       })),
       state('closed', style({
-        height: '0px',
+        width: '0',
+        // height: '0px',
         opacity: 0,
         display: 'none'
       })),
-      transition('open => closed', animate('60ms ease-out')),
+      transition('open => closed', animate('100ms ease-out')),
       transition('closed => open', animate('100ms ease-in'))
     ]),
   ],
@@ -29,6 +32,7 @@ import {
   styleUrls: ['./open-close.component.css']
 })
 export class OpenCloseComponent implements OnInit {
+  @Input() heroes: HeroModel[] = [];
   isOpen = false;
 
   toggle() {
@@ -38,6 +42,7 @@ export class OpenCloseComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('this.hero', this.heroes);
   }
 
 }

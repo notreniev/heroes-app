@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
   ];
 
   show: boolean = true;
+  selectedHeroes: HeroModel[] = [];
 
   constructor(private heroesService: HeroesService) { }
 
@@ -46,7 +47,11 @@ export class AppComponent implements OnInit {
       this.finished = true;
       this.heroes = results;
     }, 1000);
+  }
 
+  selectHeroes(hero: HeroModel) {
+    this.selectedHeroes.push(hero);
+    console.log(this.selectedHeroes)
   }
 
   async filterPowerStats(powerstat: any, checked?: boolean) {
