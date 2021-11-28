@@ -4,7 +4,7 @@
 
 <div class="panel" id="panel" [@openClose]="isOpen ? 'open' : 'closed'">
     <div>
-        <button class="btn btn-link">Fechar </button>
+        <button class="btn btn-link" (click)="toggle()">Fechar </button>
         <h3>Fight club</h3>
 
         <pre>{{heroes | json}}</pre>

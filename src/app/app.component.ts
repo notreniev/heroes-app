@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { OpenCloseComponent } from './core/components/open-close/open-close.component';
 import { HeroModel } from './core/domain/model/hero.model';
 import { HeroesService } from './heroes/heroes.service';
 
@@ -24,8 +25,9 @@ export class AppComponent implements OnInit {
     { label: 'Combate', value: 'combat', checked: false }
   ];
 
-  show: boolean = true;
   selectedHeroes: HeroModel[] = [];
+
+  @ViewChild(OpenCloseComponent) openCloseComponent: OpenCloseComponent;
 
   constructor(private heroesService: HeroesService) { }
 
@@ -50,8 +52,17 @@ export class AppComponent implements OnInit {
   }
 
   selectHeroes(hero: HeroModel) {
+    if (this.selectedHeroes.length === 2) {
+      this.selectedHeroes.shift();
+    }
     this.selectedHeroes.push(hero);
-    console.log(this.selectedHeroes)
+    console.log('60:', this.selectedHeroes);
+
+    if (this.selectedHeroes.length === 2) {
+      this.openCloseComponent.toggle();
+
+    }
+
   }
 
   async filterPowerStats(powerstat: any, checked?: boolean) {
@@ -68,6 +79,11 @@ export class AppComponent implements OnInit {
     this.hero = new HeroModel();
     this.powerstats.map((power: any) => power.checked = false);
     this.success = false;
+    this.selectedHeroes = [];
   }
 
+
+  closePanel(event: any) {
+    this.selectedHeroes = [];
+  }
 }

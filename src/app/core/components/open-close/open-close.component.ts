@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   trigger,
   state,
@@ -14,13 +14,11 @@ import { HeroModel } from '../../domain/model/hero.model';
     trigger('openClose', [
       state('open', style({
         width: '500px',
-        // height: '94vh',
         opacity: 1,
         display: 'visible'
       })),
       state('closed', style({
         width: '0',
-        // height: '0px',
         opacity: 0,
         display: 'none'
       })),
@@ -33,16 +31,20 @@ import { HeroModel } from '../../domain/model/hero.model';
 })
 export class OpenCloseComponent implements OnInit {
   @Input() heroes: HeroModel[] = [];
+  @Output() isClosed: EventEmitter<boolean> = new EventEmitter<boolean>();
   isOpen = false;
 
   toggle() {
     this.isOpen = !this.isOpen;
+
+    if (!this.isOpen) {
+      console.log('fechei no component')
+      this.isClosed.emit(!this.isOpen);
+    }
   }
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log('this.hero', this.heroes);
   }
-
 }
