@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { OpenCloseComponent } from './core/components/open-close/open-close.component';
 import { HeroModel } from './core/domain/model/hero.model';
 import { HeroesService } from './heroes/heroes.service';
@@ -9,6 +9,7 @@ import { HeroesService } from './heroes/heroes.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  @Input() selectedHeroes: HeroModel[] = [];
   title = 'hero-app';
   hero: HeroModel = new HeroModel();
   heroes: HeroModel[] = [];
@@ -24,8 +25,6 @@ export class AppComponent implements OnInit {
     { label: 'Poder', value: 'power', checked: false },
     { label: 'Combate', value: 'combat', checked: false }
   ];
-
-  selectedHeroes: HeroModel[] = [];
 
   @ViewChild(OpenCloseComponent) openCloseComponent: OpenCloseComponent;
 
@@ -51,33 +50,33 @@ export class AppComponent implements OnInit {
     }, 1000);
   }
 
-  selectHeroes(hero: HeroModel, checked: boolean) {
+  // selectHeroes(hero: HeroModel, checked: boolean) {
 
-    const indexOf = this.selectedHeroes.indexOf(hero);
+  //   const indexOf = this.selectedHeroes.indexOf(hero);
 
-    if (checked) {
-      if (this.selectedHeroes.length < 2) {
-        hero.checked = checked;
-        this.selectedHeroes.push(hero);
-      }
-    } else {
-      hero.checked = false;
-      this.selectedHeroes.splice(indexOf, 1);
-    }
+  //   if (checked) {
+  //     if (this.selectedHeroes.length < 2) {
+  //       hero.checked = checked;
+  //       this.selectedHeroes.push(hero);
+  //     }
+  //   } else {
+  //     hero.checked = false;
+  //     this.selectedHeroes.splice(indexOf, 1);
+  //   }
 
-    if (this.selectedHeroes.length === 2) {
-      if (!this.openCloseComponent.isOpen) {
-        this.openCloseComponent.toggle();
-      }
-    }
+  //   if (this.selectedHeroes.length === 2) {
+  //     if (!this.openCloseComponent.isOpen) {
+  //       this.openCloseComponent.toggle();
+  //     }
+  //   }
 
-    if (this.selectedHeroes.length === 0) {
-      if (this.openCloseComponent.isOpen) {
-        this.openCloseComponent.toggle();
-      }
-    }
+  //   if (this.selectedHeroes.length === 0) {
+  //     if (this.openCloseComponent.isOpen) {
+  //       this.openCloseComponent.toggle();
+  //     }
+  //   }
 
-  }
+  // }
 
   async filterPowerStats(powerstat: any, checked?: boolean) {
     if (checked) {
@@ -119,5 +118,9 @@ export class AppComponent implements OnInit {
         this.openCloseComponent.toggle();
       }
     }
+  }
+
+  updateSelected(event: any) {
+    this.selectedHeroes = event;
   }
 }

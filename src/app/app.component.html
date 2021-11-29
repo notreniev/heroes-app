@@ -8,7 +8,7 @@
 
 <div class="content" role="main">
 
-  <app-open-close [heroes]="selectedHeroes" (isClosed)="closePanel($event)" (removedCard)="resetCards($event)">
+  <app-open-close [heroes]="selectedHeroes" (updatePanel)="closePanel($event)" (removedCard)="resetCards($event)">
   </app-open-close>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
@@ -71,20 +71,9 @@
     <!-- Results -->
     <section class="resume-section" *ngIf="success">
       <div class="container-content-cards">
-        <div class="card" *ngFor="let hero of heroes" [ngClass]="{'card-checked':hero.checked?true:false}">
-          <div class="card-image" id="card-image" title="{{hero.name}}">
-            <img src="{{hero.image.url}}" alt="{{hero.name}}" (click)="selectHeroes(hero, !hero.checked?true:false)"
-              [ngClass]="{'img-checked':hero.checked?true:false}" />
-          </div>
-          <div class="card-footer">
-            <input type="checkbox" class="form-check-input" id="{{hero.name}}" name="{{hero.name}}"
-              [(ngModel)]="hero.checked" disabled>
-
-            <h6>{{hero.name}}</h6>
-            <p>{{hero.biography["full-name"]}}</p>
-            <a class="btn btn-link" href="#">Ver detalhes</a>
-          </div>
-        </div>
+        <app-card [heroes]="heroes" [openCloseComponent]="openCloseComponent"
+          (updateSelectedHeroes)="updateSelected($event)">
+        </app-card>
       </div>
     </section>
 

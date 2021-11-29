@@ -31,7 +31,7 @@ import { HeroModel } from '../../domain/model/hero.model';
 })
 export class OpenCloseComponent implements OnInit {
   @Input() heroes: HeroModel[] = [];
-  @Output() isClosed: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() updatePanel: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() removedCard: EventEmitter<HeroModel> = new EventEmitter<HeroModel>();
   isOpen = false;
 
@@ -39,7 +39,7 @@ export class OpenCloseComponent implements OnInit {
     this.isOpen = !this.isOpen;
 
     if (!this.isOpen) {
-      this.isClosed.emit(!this.isOpen);
+      this.updatePanel.emit(!this.isOpen);
     }
   }
 

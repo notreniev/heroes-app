@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { CardModule } from './core/components/card/card.module';
 import { OpenCloseModule } from './core/components/open-close/open-close.module';
 
 describe('AppComponent', () => {
@@ -14,7 +15,8 @@ describe('AppComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule,
         FormsModule,
-        OpenCloseModule
+        OpenCloseModule,
+        CardModule
       ],
       declarations: [
         AppComponent
