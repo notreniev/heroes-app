@@ -5,6 +5,6 @@ export class HeroModel {
     description: string;
     "full-name": string;
     biography: any;
-    powerstats: any[];
+    powerstats: any;
     checked: boolean = false;
 }

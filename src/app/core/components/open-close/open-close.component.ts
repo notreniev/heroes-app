@@ -32,13 +32,13 @@ import { HeroModel } from '../../domain/model/hero.model';
 export class OpenCloseComponent implements OnInit {
   @Input() heroes: HeroModel[] = [];
   @Output() isClosed: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() removedCard: EventEmitter<HeroModel> = new EventEmitter<HeroModel>();
   isOpen = false;
 
   toggle() {
     this.isOpen = !this.isOpen;
 
     if (!this.isOpen) {
-      console.log('fechei no component')
       this.isClosed.emit(!this.isOpen);
     }
   }
@@ -46,5 +46,11 @@ export class OpenCloseComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  remove(hero: HeroModel) {
+    const indexOf = this.heroes.findIndex(heroObj => heroObj.id === hero.id);
+    this.heroes.splice(indexOf, 1);
+    this.removedCard.emit(hero);
   }
 }

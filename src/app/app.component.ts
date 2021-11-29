@@ -70,6 +70,13 @@ export class AppComponent implements OnInit {
         this.openCloseComponent.toggle();
       }
     }
+
+    if (this.selectedHeroes.length === 0) {
+      if (this.openCloseComponent.isOpen) {
+        this.openCloseComponent.toggle();
+      }
+    }
+
   }
 
   async filterPowerStats(powerstat: any, checked?: boolean) {
@@ -87,11 +94,30 @@ export class AppComponent implements OnInit {
     this.powerstats.map((power: any) => power.checked = false);
     this.success = false;
     this.selectedHeroes = [];
-  }
+    this.heroes.forEach(hero => hero.checked = false);
 
+    if (this.openCloseComponent.isOpen) {
+      this.openCloseComponent.toggle();
+    }
+
+  }
 
   closePanel(event: any) {
     this.selectedHeroes = [];
     this.heroes.forEach(hero => hero.checked = false);
+  }
+
+  resetCards(event: any) {
+    this.heroes.forEach(hero => {
+      if (hero.id === event.id) {
+        hero.checked = false;
+      }
+    });
+
+    if (this.selectedHeroes.length === 0) {
+      if (this.openCloseComponent.isOpen) {
+        this.openCloseComponent.toggle();
+      }
+    }
   }
 }

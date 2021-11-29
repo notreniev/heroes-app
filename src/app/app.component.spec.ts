@@ -1,14 +1,20 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { OpenCloseModule } from './core/components/open-close/open-close.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule, HttpClientTestingModule, FormsModule
+        BrowserAnimationsModule,
+        RouterTestingModule,
+        HttpClientTestingModule,
+        FormsModule,
+        OpenCloseModule
       ],
       declarations: [
         AppComponent

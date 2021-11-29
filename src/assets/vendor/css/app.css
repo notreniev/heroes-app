@@ -204,37 +204,45 @@ section.resume-section .card {
 }
 
 .card-image > img:checked {
-  border: solid 2px green;
+  border: solid 0px green;
+}
+
+.card-checked {
+  border: solid 0px green;
+  transform: rotate(-5deg);
+  box-shadow: 0px 2px 5px #00000033;
+  /*  background-color: #f0f0f0; */
 }
 
 .card-image > .img-checked {
-  border: solid 3px green;
-}
-
-.card-image input[type="checkbox"] {
-  position: absolute;
-  top: 15px;
-  left: 40px;
-  border: solid 0px red;
+  border: solid 0px green;
 }
 
 .card-footer {
   width: 200px;
-  max-height: 71px;
+  height: 70px;
+  min-height: 70px;
   position: absolute;
   bottom: 0;
   background: none;
   text-align: center;
   border: solid 0px red;
   padding-top: 0px;
-  margin-top: 10px;
+  margin-top: 0px;
   margin-bottom: 0px;
   margin-left: -10px;
 }
 
+.card-footer input[type="checkbox"] {
+  position: absolute;
+  bottom: 7px;
+  left: 40px;
+  border: solid 0px red;
+  display: none;
+}
+
 .card-footer a {
   font-size: 0.8rem;
-  color: blue;
 }
 
 .progress {
@@ -289,8 +297,8 @@ section.resume-section .card {
 .panel {
   width: 500px;
   height: 94%;
-  background-color: #f0f0f0;
-  border-left: solid 1px #f0f0f0;
+  background-color: #ffffff;
+  border-left: solid 1px #dddddd;
   box-sizing: border-box;
 }
 

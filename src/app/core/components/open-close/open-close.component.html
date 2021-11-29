@@ -1,13 +1,36 @@
-<nav>
+<!-- <nav>
     <button class="btn btn-primary" (click)="toggle()">Toggle Open/Close</button>
-</nav>
+</nav> -->
 
 <div class="panel" id="panel" [@openClose]="isOpen ? 'open' : 'closed'">
     <div>
         <button class="btn btn-link" (click)="toggle()">Fechar </button>
-        <h3>Fight club</h3>
+        <h3>Comparação</h3>
 
-        <pre>{{heroes | json}}</pre>
+        <div class="container-content-cards">
+            <div class="card" *ngFor="let hero of heroes">
+                <div class="card-image" id="card-image" title="{{hero.name}}">
+                    <img src="{{hero.image.url}}" alt="{{hero.name}}" />
+                </div>
+                <div class="card-footer">
+                    <h6>{{hero.name}}</h6>
+                    <a href="#" class="btn btn-link" (click)="remove(hero)">Remover</a>
+                </div>
+
+                <div class="powerstats">
+                    <h6>{{hero.biography["full-name"]}}</h6>
+                    <ul>
+                        <li>Inteligência: {{hero.powerstats.intelligence}}</li>
+                        <li>Força: {{hero.powerstats.strength}}</li>
+                        <li>Velocidade: {{hero.powerstats.speed}}</li>
+                        <li>Durabilidade: {{hero.powerstats.durability}}</li>
+                        <li>Poder: {{hero.powerstats.power}}</li>
+                        <li>Combate: {{hero.powerstats.combat}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>
