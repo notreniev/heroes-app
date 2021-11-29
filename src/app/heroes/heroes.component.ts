@@ -53,7 +53,6 @@ export class HeroesComponent implements OnInit {
   async filterPowerStats(powerstat: any, checked?: boolean) {
     if (checked) {
       this.heroes = this.heroes.filter(hero => hero.powerstats[powerstat.value] !== 'null');
-      this.heroes.map(hero => console.log(powerstat.value, hero.powerstats[powerstat.value]));
     } else {
       this.heroes = this.heroesSearched;
     }

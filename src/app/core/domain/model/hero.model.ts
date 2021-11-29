@@ -26,5 +26,6 @@ export class HeroModel {
     }
     powerstats: any;
     response: string;
+    results: any;
     checked: boolean = false;
 }

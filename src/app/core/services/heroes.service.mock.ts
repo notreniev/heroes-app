@@ -14,8 +14,9 @@ export class HeroesServiceMock extends BaseService {
   }
 
   searchHeroes(name: string): Observable<any> {
+    const search = { response: 'success', results: getHeroesMock() };
     return new Observable((observer: Subscriber<any>) => {
-      observer.next(getHeroesMock().filter(hero => hero.name.toLocaleLowerCase() === name.toLocaleLowerCase()));
+      observer.next(search);
       observer.complete();
     });
   }
