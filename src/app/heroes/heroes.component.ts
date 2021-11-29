@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { environment } from '../../environments/environment';
 import { OpenCloseComponent } from '../core/components/open-close/open-close.component';
 import { HeroModel } from '../core/domain/model/hero.model';
 import { HeroesService } from '../core/services/heroes.service';
@@ -31,8 +32,8 @@ export class HeroesComponent implements OnInit {
   constructor(private heroesService: HeroesService) { }
 
   ngOnInit() {
-    this.hero.name = 'spider';
-    this.searchHeroes(this.hero);
+    // this.hero.name = 'spider';
+    // this.searchHeroes(this.hero);
   }
 
   async searchHeroes(hero: HeroModel) {
