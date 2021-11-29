@@ -32,8 +32,6 @@ export class HeroesComponent implements OnInit {
   constructor(private heroesService: HeroesService) { }
 
   ngOnInit() {
-    // this.hero.name = 'spider';
-    // this.searchHeroes(this.hero);
   }
 
   async searchHeroes(hero: HeroModel) {
@@ -47,7 +45,7 @@ export class HeroesComponent implements OnInit {
     setTimeout(() => {
       this.finished = true;
       this.heroes = results;
-    }, 1000);
+    }, 500);
   }
 
   async filterPowerStats(powerstat: any, checked?: boolean) {
