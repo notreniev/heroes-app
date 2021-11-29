@@ -36,17 +36,13 @@ export class CardComponent implements OnInit {
     }
 
     if (this.selectedHeroes.length === 2) {
-      if (!this.openCloseComponent.isOpen) {
-        console.log('desligou o toggle')
+      if (!this.openCloseComponent.getIsOpen()) {
         this.openCloseComponent.toggle();
-      } else {
-        console.log('ligou o toggle')
       }
     }
 
     if (this.selectedHeroes.length === 0) {
-      if (this.openCloseComponent.isOpen) {
-        console.log('49:ligou o toggle')
+      if (this.openCloseComponent.getIsOpen()) {
         this.openCloseComponent.toggle();
       }
     }

@@ -31,13 +31,17 @@ import { HeroModel } from '../../domain/model/hero.model';
 })
 export class OpenCloseComponent implements OnInit {
   @Input() heroes: HeroModel[] = [];
-  @Output() updateSelectedHeroes: HeroModel[] = [];
+  // updateSelectedHeroes: HeroModel[] = [];
 
   @Output() updatePanel: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() removedCard: EventEmitter<HeroModel> = new EventEmitter<HeroModel>();
 
   isOpen = false;
   details = true;
+
+  getIsOpen() {
+    return this.isOpen;
+  }
 
   toggle() {
     this.isOpen = !this.isOpen;
@@ -58,8 +62,8 @@ export class OpenCloseComponent implements OnInit {
     this.removedCard.emit(hero);
   }
 
-  updateSelected() {
-    this.updateSelectedHeroes = this.heroes;
-  }
+  // updateSelected() {
+  //   this.updateSelectedHeroes = this.heroes;
+  // }
 
 }
