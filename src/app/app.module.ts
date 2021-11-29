@@ -8,19 +8,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardModule } from './core/components/card/card.module';
 import { OpenCloseModule } from './core/components/open-close/open-close.module';
+import { RouterModule } from '@angular/router';
+import { HeroesComponent } from './heroes/heroes.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeroesComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    CardModule,
     FormsModule,
     HttpClientModule,
     OpenCloseModule,
-    CardModule
+    RouterModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

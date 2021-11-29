@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { HeroModel } from '../core/domain/model/hero.model';
+import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { BaseService } from '../core/base.service';
+import { HeroModel } from '../domain/model/hero.model';
+import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +21,5 @@ export class HeroesService extends BaseService {
       .get<HeroModel>(`/api/search/${name}`, this.httpOptions())
       .pipe(catchError(this.handleError));
   }
+
 }

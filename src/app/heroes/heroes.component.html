@@ -1,0 +1,47 @@
+<app-open-close [heroes]="selectedHeroes" (updatePanel)="closePanel($event)" (removedCard)="resetCards($event)">
+</app-open-close>
+
+<!-- Search Form -->
+<section class="resume-section" id="searchForm">
+    <form id="#heroesForm" #heroesForm="ngForm">
+        <div class="row">
+            <div class="col-sm">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Digite o nome do herói"
+                    [(ngModel)]="hero.name" #name="ngModel" required>
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-primary" (click)="searchHeroes(hero)"
+                    [disabled]="heroesForm.invalid">Buscar</button>
+                <button type="button" class="btn btn-link" (click)="resetForm()" [disabled]="heroesForm.invalid"
+                    *ngIf="hero.name">Reset</button>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div id="filter" *ngIf="success">
+            <div class="form-check form-check-inline" *ngFor="let powerstat of powerstats">
+                <input type="checkbox" class="form-check-input" id="{{powerstat.value}}" name="{{powerstat.value}}"
+                    [(ngModel)]="powerstat.checked"
+                    (change)="filterPowerStats(powerstat, powerstat.checked?true:false)">
+                <label class="form-check-label" for="{{powerstat.value}}">{{powerstat.label}}</label>
+            </div>
+        </div>
+    </form>
+
+    <!-- Progressbar -->
+    <div class="progress" *ngIf="!finished">
+        <div class="progress-value"></div>
+    </div>
+
+    <br>
+    <small>*Cique em dois cards para comparar heróis</small>
+</section>
+
+<!-- Results -->
+<section class="resume-section" *ngIf="success">
+    <div class="container-content-cards">
+        <app-card [heroes]="heroes" [openCloseComponent]="openCloseComponent"
+            (updateSelectedHeroes)="updateSelected($event)">
+        </app-card>
+    </div>
+</section>

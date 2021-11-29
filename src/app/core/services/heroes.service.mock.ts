@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subscriber } from 'rxjs';
-import { getHeroesMock } from '../core/domain/mock/hero.mock';
-import { BaseService } from '../core/base.service';
+import { getHeroesMock } from '../domain/mock/hero.mock';
+import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root'

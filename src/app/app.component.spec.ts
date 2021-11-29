@@ -11,11 +11,7 @@ describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        BrowserAnimationsModule,
-        RouterTestingModule,
-        HttpClientTestingModule,
-        FormsModule,
-        OpenCloseModule
+        RouterTestingModule
       ],
       declarations: [
         AppComponent
@@ -42,14 +38,5 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('#heroes')?.textContent).toContain('Heróis App');
   });
 
-  it('should test search form layout', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.form-control')?.getAttribute('placeholder')).toContain('Digite o nome do herói');
-    expect(compiled.querySelector('#searchForm .btn')?.getAttribute('type')).toBe('button');
-    expect(compiled.querySelector('#searchForm .btn-primary')?.textContent).toBe('Buscar');
-    // expect(compiled.querySelector('#searchForm .btn-primary')?.innerHTML).toBeTruthy();
-    // console.log(compiled.querySelector('#searchForm button')?.getAttributeNames())
-  });
 
 });
