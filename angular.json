@@ -90,7 +90,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "codeCoverageExclude": ["src/app/core/services/**/*"],
+            "codeCoverageExclude": [
+              "src/app/core/services/base.service.ts",
+              "src/app/core/services/heroes.service.ts",
+              "src/app/core/domain/mock/hero.mock.ts"
+            ],
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/assets/vendor/bootstrap/css/bootstrap.min.css",
