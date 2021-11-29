@@ -10,11 +10,13 @@ import { CardModule } from './core/components/card/card.module';
 import { OpenCloseModule } from './core/components/open-close/open-close.module';
 import { RouterModule } from '@angular/router';
 import { HeroesComponent } from './heroes/heroes.component';
+import { HeroesDetailsComponent } from './heroes-details/heroes-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroesDetailsComponent
   ],
   imports: [
     AppRoutingModule,

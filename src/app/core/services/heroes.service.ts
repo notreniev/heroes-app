@@ -22,4 +22,10 @@ export class HeroesService extends BaseService {
       .pipe(catchError(this.handleError));
   }
 
+  getHeroById(id: number): Observable<HeroModel> {
+    return this.httpClient
+      .get<HeroModel>(`/api/${id}`, this.httpOptions())
+      .pipe(catchError(this.handleError));
+  }
+
 }

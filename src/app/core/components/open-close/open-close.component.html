@@ -20,12 +20,14 @@
                 <div class="powerstats" *ngIf="details">
                     <h6>{{hero.biography["full-name"]}}</h6>
                     <ul>
-                        <li>Inteligência: {{hero.powerstats.intelligence}}</li>
-                        <li>Força: {{hero.powerstats.strength}}</li>
-                        <li>Velocidade: {{hero.powerstats.speed}}</li>
-                        <li>Durabilidade: {{hero.powerstats.durability}}</li>
-                        <li>Poder: {{hero.powerstats.power}}</li>
-                        <li>Combate: {{hero.powerstats.combat}}</li>
+                        <li>Inteligência: {{hero.powerstats.intelligence === 'null' ? '-' :
+                            hero.powerstats.intelligence}}</li>
+                        <li>Força: {{hero.powerstats.strength === 'null' ? '-' : hero.powerstats.strength}}</li>
+                        <li>Velocidade: {{hero.powerstats.speed === 'null' ? '-' : hero.powerstats.speed}}</li>
+                        <li>Durabilidade: {{hero.powerstats.durability === 'null' ? '-' : hero.powerstats.durability}}
+                        </li>
+                        <li>Poder: {{hero.powerstats.power === 'null' ? '-' : hero.powerstats.power}}</li>
+                        <li>Combate: {{hero.powerstats.combat === 'null' ? '-' : hero.powerstats.combat}}</li>
                     </ul>
                 </div>
 

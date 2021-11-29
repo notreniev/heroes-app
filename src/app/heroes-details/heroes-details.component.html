@@ -1,0 +1,85 @@
+<div class="content" *ngIf="success">
+    <h6>{{name}}</h6>
+    <a class="btn btn-link" href="/heroes">Voltar</a>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th scope="col">Nome completo</th>
+                <td scope="col">{{fullName}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Image</th>
+                <td scope="col">
+
+                    <div class="card">
+                        <div class="card-image" id="card-image" title="{{hero.name}}">
+                            <img src="{{hero?.image?.url}}" alt="{{name}}" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">Powerstats</th>
+                <td>
+                    <ul *ngFor="let power of powerstats">
+                        <li>
+                            Inteligência: {{power.intelligence}}
+                        </li>
+                        <li>
+                            Força: {{power.strength}}
+                        </li>
+                        <li>
+                            Velocidade: {{power.speed}}
+                        </li>
+                        <li>
+                            Durabilidade: {{power.durability}}
+                        </li>
+                        <li>
+                            Poder: {{power.power}}
+                        </li>
+                        <li>
+                            Combate: {{power.combat}}
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th scope="col">Alter Egos</th>
+                <td>{{alterEgos}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Alias</th>
+                <td>{{aliases}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Local de nascimento</th>
+                <td>{{placeOfBirth}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Primeira aparição</th>
+                <td>{{firstAppearance}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Editora</th>
+                <td>{{publisher}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Comportamento</th>
+                <td>{{alignment}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Sexo</th>
+                <td>{{alterEgos}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Raça</th>
+                <td>{{race}}</td>
+            </tr>
+            <tr>
+                <th scope="col">Profissão</th>
+                <td>{{work}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
