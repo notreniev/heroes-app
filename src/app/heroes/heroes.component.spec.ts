@@ -3,6 +3,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OpenCloseComponent } from '../core/components/open-close/open-close.component';
 import { OpenCloseModule } from '../core/components/open-close/open-close.module';
 import { getHeroesMock } from '../core/domain/mock/hero.mock';
 import { HeroesService } from '../core/services/heroes.service';
@@ -96,4 +97,10 @@ describe('HomeComponent', () => {
 
     expect(component.heroes.every(hero => hero.checked == false)).toBe(true);
   });
+
+  it('should test updateSelected', () => {
+    component.updateSelected(getHeroesMock());
+    expect(component.selectedHeroes).toBeTruthy();
+  });
+
 });

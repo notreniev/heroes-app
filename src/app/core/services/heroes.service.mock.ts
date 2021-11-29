@@ -21,4 +21,13 @@ export class HeroesServiceMock extends BaseService {
     });
   }
 
+  getHeroById(id: number): Observable<any> {
+    const search = { response: 'success', results: getHeroesMock() };
+    return new Observable((observer: Subscriber<any>) => {
+      observer.next(search);
+      observer.complete();
+    });
+  }
+
+
 }

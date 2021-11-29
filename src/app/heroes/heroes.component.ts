@@ -84,7 +84,7 @@ export class HeroesComponent implements OnInit {
     });
 
     if (this.selectedHeroes.length === 0) {
-      if (this.openCloseComponent.isOpen) {
+      if (this.openCloseComponent.getIsOpen()) {
         this.openCloseComponent.toggle();
       }
     }
