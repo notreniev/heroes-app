@@ -1,3 +1,25 @@
+.container-content-cards {
+  width: 60vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  place-content: center;
+  place-items: center;
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+.container-content-cards > div {
+  margin: 10px;
+}
+
+@media (max-width: 568px) {
+  .container-content-cards {
+    width: 100%;
+  }
+}
+
+/** CARDS */
 .card {
   position: relative;
   width: 200px;
@@ -20,19 +42,45 @@
   border: solid 0px red;
 }
 
-.container-content-cards {
-  width: 50vw;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  place-content: center;
-  place-items: center;
-  justify-content: flex-start;
-  margin: 10px;
+.card-image > img:checked {
+  border: solid 0px green;
 }
 
-.container-content-cards > div {
-  margin: 10px;
+.card-checked {
+  border: solid 0px green;
+  transform: rotate(-5deg);
+  box-shadow: 0px 2px 5px #00000033;
+}
+
+.card-image > .img-checked {
+  border: solid 0px green;
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  height: 75px;
+  min-height: 75px;
+  background: none !important;
+  text-align: center;
+  border: solid 0px red;
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: -10px;
+}
+
+.card-footer input[type="checkbox"] {
+  position: absolute;
+  bottom: 7px;
+  left: 40px;
+  border: solid 0px red;
+  display: none;
+}
+
+.card-footer a {
+  font-size: 0.8rem;
 }
 
 .powerstats {

@@ -15,8 +15,7 @@ describe('AppComponent', () => {
         RouterTestingModule,
         HttpClientTestingModule,
         FormsModule,
-        OpenCloseModule,
-        CardModule
+        OpenCloseModule
       ],
       declarations: [
         AppComponent

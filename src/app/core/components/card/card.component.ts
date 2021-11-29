@@ -12,6 +12,8 @@ export class CardComponent implements OnInit {
   @Input() heroes: HeroModel[] = [];
   @Input() openCloseComponent: OpenCloseComponent;
   @Output() updateSelectedHeroes: EventEmitter<HeroModel[]> = new EventEmitter<HeroModel[]>();
+  @Input() details = false;
+
   selectedHeroes: HeroModel[] = [];
 
   constructor() { }
@@ -35,16 +37,19 @@ export class CardComponent implements OnInit {
 
     if (this.selectedHeroes.length === 2) {
       if (!this.openCloseComponent.isOpen) {
+        console.log('desligou o toggle')
         this.openCloseComponent.toggle();
+      } else {
+        console.log('ligou o toggle')
       }
     }
 
     if (this.selectedHeroes.length === 0) {
       if (this.openCloseComponent.isOpen) {
+        console.log('49:ligou o toggle')
         this.openCloseComponent.toggle();
       }
     }
-
   }
 
   ngOnInit(): void {

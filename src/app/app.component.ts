@@ -9,14 +9,17 @@ import { HeroesService } from './heroes/heroes.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  @Input() selectedHeroes: HeroModel[] = [];
   title = 'hero-app';
+
+  @Input() selectedHeroes: HeroModel[] = [];
+
   hero: HeroModel = new HeroModel();
   heroes: HeroModel[] = [];
-  heroesImmutable: HeroModel[] = [];
+  heroesSearched: HeroModel[] = [];
   success = false;
   finished = true;
-  isChecked: any;
+  @ViewChild(OpenCloseComponent) openCloseComponent: OpenCloseComponent;
+
   powerstats = [
     { label: 'Inteligência', value: 'intelligence', checked: false },
     { label: 'Força', value: 'strength', checked: false },
@@ -25,8 +28,6 @@ export class AppComponent implements OnInit {
     { label: 'Poder', value: 'power', checked: false },
     { label: 'Combate', value: 'combat', checked: false }
   ];
-
-  @ViewChild(OpenCloseComponent) openCloseComponent: OpenCloseComponent;
 
   constructor(private heroesService: HeroesService) { }
 
@@ -41,49 +42,20 @@ export class AppComponent implements OnInit {
     const { response, results } = res;
     this.success = response === 'success';
     this.finished = false;
-    this.heroesImmutable = results;
+    this.heroesSearched = results;
 
     setTimeout(() => {
-      console.log(res);
       this.finished = true;
       this.heroes = results;
     }, 1000);
   }
-
-  // selectHeroes(hero: HeroModel, checked: boolean) {
-
-  //   const indexOf = this.selectedHeroes.indexOf(hero);
-
-  //   if (checked) {
-  //     if (this.selectedHeroes.length < 2) {
-  //       hero.checked = checked;
-  //       this.selectedHeroes.push(hero);
-  //     }
-  //   } else {
-  //     hero.checked = false;
-  //     this.selectedHeroes.splice(indexOf, 1);
-  //   }
-
-  //   if (this.selectedHeroes.length === 2) {
-  //     if (!this.openCloseComponent.isOpen) {
-  //       this.openCloseComponent.toggle();
-  //     }
-  //   }
-
-  //   if (this.selectedHeroes.length === 0) {
-  //     if (this.openCloseComponent.isOpen) {
-  //       this.openCloseComponent.toggle();
-  //     }
-  //   }
-
-  // }
 
   async filterPowerStats(powerstat: any, checked?: boolean) {
     if (checked) {
       this.heroes = this.heroes.filter(hero => hero.powerstats[powerstat.value] !== 'null');
       this.heroes.map(hero => console.log(powerstat.value, hero.powerstats[powerstat.value]));
     } else {
-      this.heroes = this.heroesImmutable;
+      this.heroes = this.heroesSearched;
     }
   }
 
@@ -98,7 +70,6 @@ export class AppComponent implements OnInit {
     if (this.openCloseComponent.isOpen) {
       this.openCloseComponent.toggle();
     }
-
   }
 
   closePanel(event: any) {

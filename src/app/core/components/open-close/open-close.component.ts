@@ -31,9 +31,13 @@ import { HeroModel } from '../../domain/model/hero.model';
 })
 export class OpenCloseComponent implements OnInit {
   @Input() heroes: HeroModel[] = [];
+  @Output() updateSelectedHeroes: HeroModel[] = [];
+
   @Output() updatePanel: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() removedCard: EventEmitter<HeroModel> = new EventEmitter<HeroModel>();
+
   isOpen = false;
+  details = true;
 
   toggle() {
     this.isOpen = !this.isOpen;
@@ -53,4 +57,9 @@ export class OpenCloseComponent implements OnInit {
     this.heroes.splice(indexOf, 1);
     this.removedCard.emit(hero);
   }
+
+  updateSelected() {
+    this.updateSelectedHeroes = this.heroes;
+  }
+
 }

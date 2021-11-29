@@ -59,27 +59,6 @@ a:hover {
   color: #125699;
 }
 
-.container-content-cards {
-  width: 60vw;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  place-content: center;
-  place-items: center;
-  justify-content: flex-start;
-  margin: -10px;
-}
-
-.container-content-cards > div {
-  margin: 10px;
-}
-
-@media (max-width: 568px) {
-  .container-content-cards {
-    width: 100%;
-  }
-}
-
 main {
   margin-bottom: 200px;
 }
@@ -91,7 +70,7 @@ footer {
 
 footer {
   margin: auto;
-  margin-top: 10px;
+  margin-top: 100px;
   margin-bottom: 10px;
   line-height: 20px;
   text-align: center;

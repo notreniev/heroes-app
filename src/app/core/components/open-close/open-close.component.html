@@ -4,7 +4,7 @@
 
 <div class="panel" id="panel" [@openClose]="isOpen ? 'open' : 'closed'">
     <div>
-        <button class="btn btn-link" (click)="toggle()">Fechar </button>
+        <!-- <button class="btn btn-link" (click)="toggle()">Fechar </button> -->
         <h3>Comparação</h3>
 
         <div class="container-content-cards">
@@ -17,7 +17,7 @@
                     <a href="#" class="btn btn-link" (click)="remove(hero)">Remover</a>
                 </div>
 
-                <div class="powerstats">
+                <div class="powerstats" *ngIf="details">
                     <h6>{{hero.biography["full-name"]}}</h6>
                     <ul>
                         <li>Inteligência: {{hero.powerstats.intelligence}}</li>
@@ -28,6 +28,7 @@
                         <li>Combate: {{hero.powerstats.combat}}</li>
                     </ul>
                 </div>
+
             </div>
         </div>
 

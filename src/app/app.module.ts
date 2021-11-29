@@ -6,12 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CardModule } from './core/components/card/card.module';
 import { OpenCloseModule } from './core/components/open-close/open-close.module';
-import { CardComponent } from './core/components/card/card.component';
+
 @NgModule({
   declarations: [
-    AppComponent,
-    CardComponent
+    AppComponent
   ],
   imports: [
     AppRoutingModule,
@@ -19,7 +19,8 @@ import { CardComponent } from './core/components/card/card.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    OpenCloseModule
+    OpenCloseModule,
+    CardModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
