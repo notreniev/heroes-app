@@ -35,17 +35,15 @@ export class HeroesComponent implements OnInit {
   }
 
   async searchHeroes(hero: HeroModel) {
+    this.finished = false;
     this.heroes = [];
     const res = await <any>this.heroesService.searchHeroes(hero.name).toPromise();
     const { response, results } = res;
     this.success = response === 'success';
-    this.finished = false;
     this.heroesSearched = results;
 
-    setTimeout(() => {
-      this.finished = true;
-      this.heroes = results;
-    }, 500);
+    this.heroes = results;
+    this.finished = true;
   }
 
   async filterPowerStats(powerstat: any, checked?: boolean) {

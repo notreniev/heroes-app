@@ -53,13 +53,9 @@ describe('HomeComponent', () => {
 
   it('should search a hero', async () => {
     const mock = getHeroesMock();
-    const spyTimeout = spyOn(window, 'setTimeout');
-    fixture.detectChanges();
-
     await component.searchHeroes(mock[0]);
     fixture.detectChanges();
 
-    expect(spyTimeout).toHaveBeenCalled();
     expect(component.heroesSearched[0].name).toEqual(mock[0].name);
   });
 
